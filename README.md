@@ -30,7 +30,7 @@ O sistema simula o envio de e-mails para contatos cadastrados, servindo como um 
 - **PHP** – Lógica de backend  
 - **MySQL** – Armazenamento dos contatos 
 - **MVC (Model-View-Controller)** – Organização do projeto  
-- **Smarty** – Template engine para as views  
+- **[Smarty](https://www.smarty.net/)** – Template engine para as views  
 
 ---
 

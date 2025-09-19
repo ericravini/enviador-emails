@@ -68,7 +68,7 @@ Isso criará a database emails e a tabela contatos.
   CREATE TABLE IF NOT EXISTS contatos (
       id INT AUTO_INCREMENT PRIMARY KEY,
       nome VARCHAR(100) NOT NULL,
-      email VARCHAR(150) NOT NULL UNIQUE,
+      email VARCHAR(150) NOT NULL,
       criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
 ```

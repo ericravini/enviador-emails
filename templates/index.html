@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Mails</title>
+  <link rel="stylesheet" href="../templates/css/style.css">
+</head>
+<body>
+  <div class="div-titulo">
+    <h1>Enviador de E-Mails</h1>
+  </div>
+  <main>
+    <section class="main-content">
+      <h2>Área de Envio</h2>
+      <div class="form-send">
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+        <button>Enviar para todos</button>
+      </div>
+      <hr>
+      <h2>Adicionar Contato</h2>
+      <form action="index.php?acao=add" method="post" class="form-add">
+        <input type="text" name="nome" id="nome" placeholder="Nome">
+        <input type="text" name="email" id="email" placeholder="email@email.com">
+        <input type="submit" value="Adicionar">
+      </form>
+    </section>
+    <section class="other-content">
+      <h2>Lista de Contatos:</h2>
+      <div class="user-list">
+        <div>abc abc@abc.com</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

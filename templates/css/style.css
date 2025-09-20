@@ -11,18 +11,24 @@
   --persian-green: #1b998bff;
   --magnolia: #f8f1ffff;
   --thistle: #decdf5ff;
+  --french-gray: #ADB5BD;
   --dim-gray: #656176ff;
   --davys-gray: #534d56ff;
+  --onyx: #343A40;
+  --eerie-black: #212529;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: lighter;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .div-titulo {
+  margin: 0 0 10px 0;
   display: flex;
   justify-content: center;
+  cursor: default;
 }
 .div-titulo h1 {
   margin-top: 20px;
@@ -33,10 +39,6 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 2px solid var(--magnolia);
 }
 
-input, button {
-  color: black;
-}
-
 body {
   padding: 40px;
   width: 100vw;
@@ -44,13 +46,12 @@ body {
   background-color: var(--persian-green);
 }
 
-
 main {
   background-color: var(--dim-gray);
   max-width: 900px;
   height: auto;
   margin: auto;
-  padding: 6px;
+  padding: 10px;
 
   display: flex;
   gap: 10px;
@@ -59,7 +60,6 @@ main {
 
   border-radius: 5px;
 }
-
 main > section {
   padding: 10px;
   width: 100%;
@@ -69,6 +69,7 @@ main > section {
   background-color: var(--davys-gray);
   overflow: scroll;
 }
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 100%;
@@ -89,10 +90,106 @@ main > section {
   display: none; /* Tirar o canto das scrollbars, onde elas se encontram*/
 }
 
+.main-content hr, .other-content hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: var(--dim-gray);
+  height: 2px;
+  border-style: none;
+  border-radius: inherit;
+}
+
+/* Forms */
+
 .form-send textarea {
-  min-width: 99%;
+  min-width: 100%;
   width: 100%;
-  max-width: 99%;
+  max-width: 100%;
+  min-height: 70px;
   height: 150px;
   max-height: 250px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+textarea {
+  border: 3px solid;
+  border-color: var(--onyx);
+  border-radius: 5px;
+  padding: 4px;
+  color: var(--french-gray);
+  background-color: var(--eerie-black);
+  transition: border-color 0.2s ease-in-out, color 0.2s ease;
+}
+textarea:focus {
+  color: var(--magnolia);
+  outline: none;
+  border-color: var(--dim-gray);
+}
+
+.mensagem-enviada {
+  margin-top: 3px;
+}
+
+.input-text {
+  margin-top: 3px;
+  height: 30px;
+  border: 3px solid;
+  border-color: var(--onyx);
+  border-radius: 5px;
+  padding: 4px;
+  color: var(--french-gray);
+  background-color: var(--eerie-black);
+
+  transition: border-color 0.2s ease-in-out, color 0.2s ease;
+}
+.input-text:focus {
+  color: var(--magnolia);
+  outline: none;
+  border-color: var(--dim-gray);
+}
+
+.button-div { /* A div do botão */
+  margin-top: 3px;
+
+  display: flex;
+  justify-content: right;
+  gap: 3px;
+}
+.button-div input { /* O input botao */
+  min-width: 35px;
+  width: auto;
+  height: 30px;
+  color: var(--magnolia);
+  background-color: var(--onyx);
+  border: 3px solid var(--eerie-black);
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.button-div input:hover {
+  background-color: var(--eerie-black);
+  border-color: black;
+}
+
+/* Lista de contatos */
+
+.user-list {
+  margin-top: 3px;
+  padding: 4px;
+  height: 85%;
+  
+  border: 3px solid;
+  border-color: var(--onyx);
+  border-radius: 5px;
+
+  color: var(--french-gray);
+  background-color: var(--eerie-black);
+
+  overflow: scroll;
 }

@@ -14,19 +14,39 @@
     <section class="main-content">
       <h2>Área de Envio</h2>
       <div class="form-send">
-        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
-        <button>Enviar para todos</button>
+        <form action="index.php" method="post">
+          <input type="hidden" name="acao" value="enviar-todos">
+
+          <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem para enviar..." minlenght="3" spellcheck="true"></textarea>
+
+          <div class="button-div">
+            <input type="reset" value="🗑">
+            <input type="submit" value="Enviar para Todos">
+          </div>
+          {if (isset($mensagemEnviada))}
+            echo "<div class="mensagem-enviada">" . $mensagemEnviada . "</div>";
+          {/if}
+        </form>
       </div>
       <hr>
       <h2>Adicionar Contato</h2>
-      <form action="index.php?acao=add" method="post" class="form-add">
-        <input type="text" name="nome" id="nome" placeholder="Nome">
-        <input type="text" name="email" id="email" placeholder="email@email.com">
-        <input type="submit" value="Adicionar">
+      <form action="index.php" method="post" class="form-add">
+        <input type="hidden" name="acao" value="add-contato">
+        <input class="input-text" type="text" name="nome" id="nome" placeholder="Nome" class="input-text" autocomplete="off" required>
+        <input class="input-text" type="text" name="email" id="email" placeholder="email@email.com" autocomplete="off" required>
+        <div class="button-div">
+          <input type="submit" value="Adicionar">
+        </div>
       </form>
     </section>
     <section class="other-content">
       <h2>Lista de Contatos:</h2>
+      <div class="div-search">
+        <form action="index.php" method="post">
+          <input class="search-bar" type="text" name="search" id="search" placeholder="Pesquisar...">
+          <input class="search" type="submit" value="🔍">
+        </form>
+      </div>
       <div class="user-list">
         <div>abc abc@abc.com</div>
       </div>

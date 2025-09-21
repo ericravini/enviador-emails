@@ -13,6 +13,7 @@ O sistema simula o envio de e-mails para contatos cadastrados, servindo como um 
 - Listar todos os contatos cadastrados em uma base de dados local.  
 - Escrever mensagens em uma área de envio e simular o envio para todos os contatos.  
 - Estrutura organizada em **MVC com Smarty**, separando regras de negócio da camada de apresentação.  
+- Responsividade em diferentes tamanhos de tela.
 
 ---
 

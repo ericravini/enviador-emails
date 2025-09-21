@@ -19,7 +19,7 @@ O sistema simula o envio de e-mails para contatos cadastrados, servindo como um 
 
 ## 🖼️ Demonstração
 
-![Tela do projeto](.imagens/screenshot.png)  
+![Tela do projeto](./imagens/screenshot.png)  
 *Exemplo da interface atual do projeto (em desenvolvimento).*
 
 ---

@@ -44,7 +44,8 @@ body {
   padding: 40px;
   width: 100vw;
   height: 100vh;
-  background-color: var(--persian-green);
+  background: var(--persian-green);
+  background: linear-gradient(0deg, #1b998b 0%, #1b998b 50%, #57c785 90%, #57c785 100%);
   overflow: hidden;
 }
 

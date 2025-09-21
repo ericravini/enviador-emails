@@ -16,6 +16,7 @@
   --davys-gray: #534d56ff;
   --onyx: #343A40;
   --eerie-black: #212529;
+  --delete: #bb3535;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,8 +43,9 @@ h1, h2, h3, h4, h5, h6 {
 body {
   padding: 40px;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   background-color: var(--persian-green);
+  overflow: hidden;
 }
 
 main {
@@ -99,7 +101,14 @@ main > section {
   border-radius: inherit;
 }
 
-/* Forms */
+/* --- Forms --- */
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
 .form-send textarea {
   min-width: 100%;
@@ -109,13 +118,6 @@ main > section {
   height: 150px;
   max-height: 250px;
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
 textarea {
   border: 3px solid;
   border-color: var(--onyx);
@@ -132,12 +134,12 @@ textarea:focus {
 }
 
 .mensagem-enviada {
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 .input-text {
   margin-top: 3px;
-  height: 30px;
+  height: 35px;
   border: 3px solid;
   border-color: var(--onyx);
   border-radius: 5px;
@@ -157,39 +159,170 @@ textarea:focus {
   margin-top: 3px;
 
   display: flex;
-  justify-content: right;
-  gap: 3px;
+  justify-content: end;
+  gap: 4px;
 }
 .button-div input { /* O input botao */
   min-width: 35px;
   width: auto;
-  height: 30px;
+  height: 35px;
   color: var(--magnolia);
   background-color: var(--onyx);
   border: 3px solid var(--eerie-black);
   border-radius: 5px;
   cursor: pointer;
 
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 .button-div input:hover {
+  transform: scale(1.04);
   background-color: var(--eerie-black);
   border-color: black;
 }
 
-/* Lista de contatos */
-
+/* --- Lista de contatos --- */
 .user-list {
   margin-top: 3px;
   padding: 4px;
-  height: 85%;
+  height: 73.6%;
+  font-size: 0.9rem;
   
+  border: 3px solid;
+  border-color: var(--eerie-black);
+  border-radius: 5px;
+  
+  background-color: var(--onyx);
+  
+  overflow: scroll;
+}
+/* - Linha - */
+.user-list .line {
+  padding: 3px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-radius: inherit;
+  
+  color: var(--french-gray);
+  background-color: var(--eerie-black);
+}
+.user-name, .email {
+  flex: 2;
+  max-width: 100%;
+  justify-self: flex-start;
+  overflow: hidden;
+}
+/* Ações */
+.actions {
+  flex: 0; /* pra ficar no canto */
+  justify-self: flex-end;
+  color: var(--french-gray);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  cursor: pointer;
+}
+.actions svg {
+  padding: 3px;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 5px;
+}
+.edit {
+  background-color: var(--persian-green);
+}
+.delete {
+  background-color: var(--delete);
+}
+.edit:hover {
+  background-color: #0e7468;
+}
+.delete:hover {
+  background-color: #911b1b;
+}
+
+/* Pesquisa */
+.div-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 3px;
+}
+.search-bar {
+  flex: 2;
+
+  height: 35px;
   border: 3px solid;
   border-color: var(--onyx);
   border-radius: 5px;
-
+  padding: 4px;
   color: var(--french-gray);
   background-color: var(--eerie-black);
 
-  overflow: scroll;
+  transition: border-color 0.2s ease-in-out, color 0.2s ease;
+}
+.search-bar:focus {
+  color: var(--magnolia);
+  outline: none;
+  border-color: var(--dim-gray);
+}
+
+.search-button { /* O input botao */
+  min-width: 35px;
+  width: auto;
+  height: 35px;
+  color: var(--magnolia);
+  background-color: var(--eerie-black);
+  border: 3px solid var(--onyx);
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.search-button:hover {
+  transform: scale(1.1);
+  background-color: var(--onyx);
+  border-color: var(--eerie-black);
+}
+
+.list-results-text {
+  margin-top: 4px;
+
+  text-indent: 4px;
+  font-weight: bold;
+}
+
+/* --- Footer --- */
+footer {
+  margin-top: 35px;
+  text-align: center;
+}
+footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+footer a span {
+  font-size: 15px;
+  color: var(--magnolia);
+  text-shadow: 0px 4px 10px rgba(0,0,0,0.6);
+  text-decoration: underline;
+}
+footer a span:hover {
+  color: lightgray;
+}
+footer a span:active {
+  color: lightskyblue;
+}
+footer svg {
+  width: 1.7em;
+  height: 1.7em;
+  font-size: large;
+  border-radius: 50%;
+  background-color: var(--magnolia);
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.6);
+}
+footer svg:hover {
+  background-color: lightgray;
 }

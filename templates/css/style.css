@@ -70,7 +70,7 @@ main > section {
   height: 500px;
   border-radius: inherit;
   background-color: var(--davys-gray);
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -103,8 +103,6 @@ main > section {
 }
 
 /* --- Forms --- */
-
-
 form {
   display: flex;
   flex-direction: column;
@@ -126,16 +124,33 @@ textarea {
   padding: 4px;
   color: var(--french-gray);
   background-color: var(--eerie-black);
-  transition: border-color 0.2s ease-in-out, color 0.2s ease;
+  transition: border-color 0.2s ease-in-out, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 textarea:focus {
   color: var(--magnolia);
+  transform: translateY(-2px);
   outline: none;
   border-color: var(--dim-gray);
+  box-shadow: 0 3px 10px 3px rgba(0,0,0,0.2);
+}
+textarea:hover {
+  color: var(--magnolia);
 }
 
 .mensagem-enviada {
+  padding: 4px;
+  height: auto;
+  max-height: 200px;
+  text-indent: 4px;
   margin-top: 4px;
+  border-radius: 5px;
+  overflow-wrap: anywhere;
+  overflow-y: scroll;
+  color: var(--magnolia);
+  background-color: var(--onyx);
+}
+.mensagem-enviada .mensagem {
+  color: var(--magnolia);
 }
 
 .input-text {
@@ -155,6 +170,9 @@ textarea:focus {
   outline: none;
   border-color: var(--dim-gray);
 }
+.input-text:hover {
+  color: var(--magnolia);
+}
 
 .button-div { /* A div do botão */
   margin-top: 3px;
@@ -163,7 +181,7 @@ textarea:focus {
   justify-content: end;
   gap: 4px;
 }
-.button-div input { /* O input botao */
+.button-div input, .reload-button { /* O input botao */
   min-width: 35px;
   width: auto;
   height: 35px;
@@ -175,16 +193,19 @@ textarea:focus {
 
   transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
-.button-div input:hover {
+.button-div input:hover, .reload-button:hover {
   transform: scale(1.04);
   background-color: var(--eerie-black);
   border-color: black;
+}
+.button-div input:active, .reload-button:active {
+  transform: scale(1);
 }
 
 /* --- Lista de contatos --- */
 .user-list {
   margin-top: 3px;
-  padding: 4px;
+  padding: 4px 0 4px 0;
   height: 73.6%;
   font-size: 0.9rem;
   
@@ -196,8 +217,14 @@ textarea:focus {
   
   overflow: scroll;
 }
+.search-message small { /* "Mostrando resultados para..." */
+  color: var(--french-gray);
+  margin-left: 5px;
+}
 /* - Linha - */
 .user-list .line {
+  margin-top: 1px;
+  margin-left: 5px;
   padding: 3px;
   width: auto;
   display: flex;
@@ -207,6 +234,10 @@ textarea:focus {
   
   color: var(--french-gray);
   background-color: var(--eerie-black);
+  transition: background-color 0.1s ease;
+}
+.user-list .line:hover {
+  background-color: #272b30;
 }
 .user-name, .email {
   flex: 2;
@@ -268,6 +299,9 @@ textarea:focus {
   outline: none;
   border-color: var(--dim-gray);
 }
+.search-bar:hover {
+  color: var(--magnolia);
+}
 
 .search-button { /* O input botao */
   min-width: 35px;
@@ -286,9 +320,18 @@ textarea:focus {
   background-color: var(--onyx);
   border-color: var(--eerie-black);
 }
+.search-button:active {
+  transform: scale(1);
+}
 
-.list-results-text {
+.after-list {
   margin-top: 4px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.list-results-text {
+  flex: 1;
 
   text-indent: 4px;
   font-weight: bold;

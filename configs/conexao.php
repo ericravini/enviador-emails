@@ -20,5 +20,5 @@
     $query->execute();
 
   } catch (PDOException $e) {
-    echo '<p style="color=red;">Erro na conexão da database: ' . $e->getMessage() . '</p>'; //o getmessage aqui pega a mensagem do erro, obviamente
+    die ('Erro na conexão da database: ' . $e->getMessage()); //o getmessage aqui pega a mensagem do erro, obviamente
   }

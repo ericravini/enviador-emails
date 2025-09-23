@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Mails</title>
-  <!-- <link rel="stylesheet" href="../templates/css/style.css"> -->
+  <link rel="stylesheet" href="../templates/css/style.css">
   <link rel="stylesheet" href="templates/css/style.css">
   <link rel="stylesheet" href="templates/css/responsivo.css">
 </head>
@@ -22,12 +22,14 @@
           <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem para enviar..." minlength="3" spellcheck="true"></textarea>
 
           <div class="button-div">
-            <input type="reset" value="❌">
+            <input type="reset" value="❌" title="Limpar mensagem">
             <input type="submit" value="Enviar para todos">
           </div>
 
-          {if (isset($mensagemEnviada))}
-            echo "<div class="mensagem-enviada">" . $mensagemEnviada . "</div>";
+          {if (isset($mensagemEnviada) && strlen($mensagemEnviada) > 2)}
+            <div class="mensagem-enviada"><strong>Mensagem enviada:</strong> <br>
+              <span class="mensagem">{$mensagemEnviada}</span>
+            </div>
           {/if}
         </form>
       </div>
@@ -38,7 +40,7 @@
         <input type="hidden" name="acao" value="add-contato">
 
         <input class="input-text" type="text" name="nome" id="nome" placeholder="Nome curto..." class="input-text" autocomplete="off" required>
-        <input class="input-text" type="text" name="email" id="email" placeholder="email@exemplo.com" autocomplete="off" required>
+        <input class="input-text" type="email" name="email" id="email" placeholder="email@exemplo.com" autocomplete="off" required>
 
         <div class="button-div">
           <input type="submit" value="Adicionar">
@@ -49,21 +51,35 @@
       <h2>Lista de Contatos</h2>
 
       <form class="div-search" action="index.php" method="post">
-        <input class="search-bar" type="text" name="search" id="search" placeholder="Pesquisar nome ou e-mail..." autocomplete="off">
+        <input type="hidden" name="acao" value="pesquisar">
+        <input class="search-bar" type="text" name="search" id="search" placeholder="Pesquisar nome ou e-mail..." autocomplete="off" value="{if (isset($mensagemPesquisa))}{$mensagemPesquisa}{/if}">
+        
         <input class="search-button" type="submit" value="🔍">
       </form>
 
       <div class="user-list">
+        {if (isset($mensagemPesquisa))}
+          <div class="search-message">
+            <small>Mostrando resultados para "{$mensagemPesquisa}" ({$results}):</small>
+          </div>
+        {/if}
+        {foreach $listaUsers as $user}
         <div class="line">
-          <span class="user-name">Nome</span> | 
-          <span class="email">email@gmail.com</span> 
+          <span class="user-name" title="{$user.nome}">{$user.nome}</span> | 
+          <span class="email" title="{$user.email}">{$user.email}</span> 
           <span class="actions">
-            <svg class="edit" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$editIcon}' clip-rule='evenodd'/></svg>
-            <svg class="delete" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$deleteIcon}' clip-rule='evenodd'/></svg>
+            <svg class="edit" title="Editar contato" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$editIcon}' clip-rule='evenodd'/></svg>
+            <svg class="delete" title="Deletar contato" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$deleteIcon}' clip-rule='evenodd'/></svg>
           </span>
         </div>
+        {/foreach}
       </div>
-      <p class="list-results-text">{$results} resultado(s)</p>
+      <div class="after-list">
+        <p class="list-results-text"><small>{$results} resultado(s)</small></p>
+        <form class="div-recarregar">
+          <input class="reload-button" type="submit" value="🔄" title="Recarregar">
+        </form>
+      </div>
     </section>
   </main>
 

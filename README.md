@@ -79,11 +79,11 @@ A conexão no PHP foi configurada para usar o localhost no XAMPP.
 O arquivo com as configurações de conexão está em `configs/conexao.php`.
 
 ## 📌 TODO
-- [ ] Função de adicionar contatos
-- [ ] Pesquisar contatos na lista
-- [ ] Simular enviar mensagem
 - [ ] Editar e deletar contatos
 - [ ] Lista de contatos com páginas
+- [X] Função de adicionar contatos
+- [X] Função de pesquisar contatos na lista
+- [X] Simular enviar mensagem
 - [X] Deixar a interface responsiva com outros tamanhos de tela
 - [X] Melhorar o design da interface
 

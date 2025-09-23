@@ -80,9 +80,11 @@ O arquivo com as configurações de conexão está em `configs/conexao.php`.
 
 ## 📌 TODO
 - [ ] Função de adicionar contatos
-- [ ] Melhorar o design da interface
-- [ ] Lista de contatos com páginas
 - [ ] Pesquisar contatos na lista
-- [ ] Deixar a interface responsiva com outros tamanhos de tela
+- [ ] Simular enviar mensagem
+- [ ] Editar e deletar contatos
+- [ ] Lista de contatos com páginas
+- [X] Deixar a interface responsiva com outros tamanhos de tela
+- [X] Melhorar o design da interface
 
 👤 By [Eric Ravini](github.com/ericravini)

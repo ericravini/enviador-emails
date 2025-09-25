@@ -56,7 +56,7 @@
             try {
               $queryPesquisa = $pdo->prepare('SELECT * FROM contatos WHERE nome LIKE ? OR email LIKE ?');
               $argumentoPesquisa = "%" . $mensagemPesquisa . "%";
-              $queryPesquisa->execute($argumentoPesquisa, $argumentoPesquisa); // passando os valores por aqui para evitar problemas de sql injection (novamente)
+              $queryPesquisa->execute([$argumentoPesquisa, $argumentoPesquisa]); // passando os valores por aqui para evitar problemas de sql injection (novamente)
               $listaUsers = $queryPesquisa->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
               die('Erro ao listar contatos: ' . $e->getMessage());

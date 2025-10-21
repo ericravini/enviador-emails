@@ -109,7 +109,18 @@ form {
   flex-wrap: wrap;
 }
 
+.form-send .input-text {
+  transition: border-color 0.2s ease-in-out, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.form-send .input-text:focus {
+  color: var(--magnolia);
+  transform: translateY(-2px);
+  outline: none;
+  border-color: var(--dim-gray);
+  box-shadow: 0 3px 10px 3px rgba(0,0,0,0.2);
+}
 .form-send textarea {
+  margin-top: 3px;
   min-width: 100%;
   width: 100%;
   max-width: 100%;
@@ -138,16 +149,18 @@ textarea:hover {
 }
 
 .mensagem-enviada {
-  padding: 4px;
+  padding: 8px;
   height: auto;
   max-height: 200px;
-  text-indent: 4px;
   margin-top: 4px;
   border-radius: 5px;
   overflow-wrap: anywhere;
   overflow-y: scroll;
   color: var(--magnolia);
   background-color: var(--onyx);
+}
+.mensagem-enviada .assunto {
+  font-size: large;
 }
 .mensagem-enviada .mensagem {
   color: var(--magnolia);
@@ -201,6 +214,14 @@ textarea:hover {
 .button-div input:active, .reload-button:active {
   transform: scale(1);
 }
+.button-div .update-button {
+  background-color: #178073;
+  border-color: #0d6359;
+}
+.button-div .update-button:hover {
+  background-color: #0d6359;
+  border-color: #093530;
+}
 
 /* --- Lista de contatos --- */
 .user-list {
@@ -233,12 +254,11 @@ textarea:hover {
   border-radius: inherit;
   
   color: var(--french-gray);
-  background-color: var(--eerie-black);
   transition: background-color 0.1s ease;
 }
-.user-list .line:hover {
+/* .user-list .line:hover {
   background-color: #272b30;
-}
+} */
 .user-name, .email {
   flex: 2;
   max-width: 100%;
@@ -247,7 +267,7 @@ textarea:hover {
 }
 /* Ações */
 .actions {
-  flex: 0; /* pra ficar no canto */
+  flex: 0;
   justify-self: flex-end;
   color: var(--french-gray);
   display: inline-flex;
@@ -260,6 +280,11 @@ textarea:hover {
   width: 1.7em;
   height: 1.7em;
   border-radius: 5px;
+}
+.actions a {
+  /* Para consertar desalinhamento estranho dos botões */
+  display: inline-flex;
+  align-items: center;
 }
 .edit {
   background-color: var(--persian-green);
@@ -334,6 +359,23 @@ textarea:hover {
   flex: 1;
 
   text-indent: 4px;
+  font-weight: bold;
+}
+
+.edit-content {
+  max-width: 600px;
+  max-height: 200px;
+  flex-wrap: wrap;
+}
+.edit-content > section {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+.edit-content small {
+  color: #222;
+  align-self: center;
+  margin-right: 5px;
   font-weight: bold;
 }
 

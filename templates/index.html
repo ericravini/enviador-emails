@@ -4,9 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Mails</title>
-  <link rel="stylesheet" href="../templates/css/style.css">
-  <link rel="stylesheet" href="templates/css/style.css">
+  <link rel="stylesheet" href="templates/css/index.css">
   <link rel="stylesheet" href="templates/css/responsivo.css">
+
+  <script>
+    function confirmarDelete(nome, email) {
+      if (confirm(`Tem certeza que quer deletar esse contato?`)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="div-titulo">
@@ -19,7 +28,8 @@
         <form action="index.php" method="post">
           <input type="hidden" name="acao" value="enviar-todos">
 
-          <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem para enviar..." minlength="3" spellcheck="true"></textarea>
+          <input class="input-text" type="text" name="assunto" id="assunto" placeholder="Assunto..." minlength="3" autocomplete="off" spellcheck="true" required>
+          <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem para enviar..." minlength="3" spellcheck="true" required></textarea>
 
           <div class="button-div">
             <input type="reset" value="❌" title="Limpar mensagem">
@@ -27,8 +37,13 @@
           </div>
 
           {if (isset($mensagemEnviada) && strlen($mensagemEnviada) > 2)}
-            <div class="mensagem-enviada"><strong>Mensagem enviada:</strong> <br>
-              <span class="mensagem">{$mensagemEnviada}</span>
+          <small>Enviado para {$results} contatos:</small>
+            <div class="mensagem-enviada"> 
+              <span class="assunto">{$assuntoEnviado}</span>
+              <br><br>
+              <span class="mensagem">
+                {$mensagemEnviada}
+              </span>
             </div>
           {/if}
         </form>
@@ -64,12 +79,16 @@
           </div>
         {/if}
         {foreach $listaUsers as $user}
-        <div class="line">
+        <div class="line" style="background: {cycle values='#212529, #272b30'};">
           <span class="user-name" title="{$user.nome}">{$user.nome}</span> | 
           <span class="email" title="{$user.email}">{$user.email}</span> 
           <span class="actions">
-            <svg class="edit" title="Editar contato" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$editIcon}' clip-rule='evenodd'/></svg>
-            <svg class="delete" title="Deletar contato" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$deleteIcon}' clip-rule='evenodd'/></svg>
+            <a href="editar.php?contato={$user.id}">
+              <svg class="edit" title="Editar contato" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$editIcon}' clip-rule='evenodd'/></svg>
+            </a>
+            <a href="index.php?acao=deletar&contato={$user.id}" onclick="return confirmarDelete()">
+              <svg class="delete" title="Deletar contato" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule='evenodd' d='{$deleteIcon}' clip-rule='evenodd'/></svg>
+            </a>
           </span>
         </div>
         {/foreach}

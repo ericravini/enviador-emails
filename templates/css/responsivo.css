@@ -19,11 +19,11 @@
   }
 
   .user-name, .email {
-    font-size: 17px;
+    font-size: 16px;
   }
   /* Ações */
   .actions {
-    gap: 0.45em;
+    gap: 0.35em;
   }
   .actions svg {
     padding: 2px;
@@ -45,5 +45,9 @@
 
   h2 {
     font-size: 25px;
+  }
+
+  .user-name, .email {
+    font-size: 14px;
   }
 }

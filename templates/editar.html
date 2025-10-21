@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Mails</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="templates/css/index.css">
+  <link rel="stylesheet" href="templates/css/responsivo.css">
+</head>
+<body>
+  <div class="div-titulo">
+    <h1>📧 Enviador de E-Mails</h1>
+  </div>
+
+  <main class="edit-content">
+    <section>
+      <h2>Editar Contato</h2>
+      <form action="index.php" method="post">
+        <input type="hidden" name="acao" value="editar">
+        <input type="hidden" name="id" value="{$id}">
+        <input class="input-text" name="nome" id="nome" value="{$nome}" placeholder="{$nome}" class="input-text" autocomplete="off" required>
+        <input class="input-text" type="email" name="email" id="email" value="{$email}" placeholder="{$email}" autocomplete="off" required>
+        <div class="button-div">
+          <small>ID: {$id}</small>
+          <a href="index.php?"><input type="button" value="Voltar"></a>
+          <input type="submit" value="Atualizar" class="update-button">
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

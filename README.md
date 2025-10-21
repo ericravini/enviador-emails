@@ -39,7 +39,7 @@ O sistema simula o envio de e-mails para contatos cadastrados, servindo como um 
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/ericravini/enviador-emails
    ```
 2. Instale e inicie o [XAMPP](https://www.apachefriends.org/pt_br/index.html).
 3. Mova o projeto para dentro da pasta `htdocs` do XAMPP.

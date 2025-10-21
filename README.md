@@ -20,7 +20,7 @@ O sistema simula o envio de e-mails para contatos cadastrados, servindo como um 
 ## 🖼️ Demonstração
 
 ![Tela do projeto](./imagens/screenshot.png)  
-*Exemplo da interface atual do projeto (em desenvolvimento).*
+*Exemplo da interface atual do projeto.*
 
 ---
 
@@ -79,8 +79,8 @@ A conexão no PHP foi configurada para usar o localhost no XAMPP.
 O arquivo com as configurações de conexão está em `configs/conexao.php`.
 
 ## 📌 TODO
-- [ ] Editar e deletar contatos
 - [ ] Lista de contatos com páginas
+- [X] Editar e deletar contatos
 - [X] Função de adicionar contatos
 - [X] Função de pesquisar contatos na lista
 - [X] Simular enviar mensagem
